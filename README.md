@@ -3,6 +3,8 @@ Push Notification in flask and react js with firebase to send botification to si
 
 #have used
 
-##1. Python Flask as backend
-##2. react js as frontend
-##3. postgresql as database
+### 1. Python Flask as backend
+
+### 2. react js as frontend
+
+### 3. postgresql as database
