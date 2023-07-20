@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { getToken } from "firebase/messaging";
-import logo from "./logo.svg";
 import "./App.css";
 import { messaging } from "./firebase";
 import axios from "axios";
@@ -27,22 +26,41 @@ function App() {
     requestPermission();
   }, []);
 
+  const sendMultiplePushNotification = async () => {
+    await axios.get("/send-notification-to-multiple");
+  };
+
+  const sendSinglePushNotification = async () => {
+    await axios.get("/send-notification-to-one");
+  }
+
+  const buttonStyle = {
+    padding: "10px",
+    backgroundColor: "#0094de",
+    color: "white",
+    borderRadius: "10px",
+    margin: "10px",
+    cursor: "pointer",
+    border: "none",
+    outline: "none",
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <button onClick={sendSinglePushNotification} style={buttonStyle}>
+        send single push notification
+      </button>
+
+      <button onClick={sendMultiplePushNotification} style={buttonStyle}>
+        send multiple push notification
+      </button>
     </div>
   );
 }
