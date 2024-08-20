@@ -50,7 +50,7 @@ def store_tokens():
     conn = db_connection()
     cursor = conn.cursor()
     data = request.get_json()
-    email = "farooque-socsupport@railtelindia.com"
+    email = "test@test.com" #FIXME: fix this
     user_agent = request.headers.get("User-Agent").lower()
     if "mobile" in user_agent:
         token_type = "mobile_token"
@@ -105,7 +105,7 @@ def send_notification_to_multiple():
     }
     # TODO: run this for all the users
     # emails = request.json["emails"]
-    emails = ["farooque-socsupport@railtelindia.com"]
+    emails = ["test@test.com" #FIXME: fix this]
     for email in emails:
         tokens = retrieve_tokens(email)
         print("inside multicast", tokens)
